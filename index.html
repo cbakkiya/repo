@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+// limit the result through days parameter to keep the returned data set light
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.openweathermap.org/surfreport/25&days=1",
+  "method": "GET"
+}
+
+// use ajax method to allow for asynchronous calls that won't block page loading
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  $("#surfheight").append(response.surfreport.conditions);
+});
+</script>
+</head>
+<body>
+<h2>Surf Height</h2>
+<div id="surfheight"></div>
+</body>
+</html>
